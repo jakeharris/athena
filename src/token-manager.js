@@ -17,7 +17,7 @@ class TokenManager {
                 .on('line', function(line) {
                     let words = line.split(' ')
                     if(words.length !== 2)
-                        throw new Error('Improper formatting. (Name-token pairs are space-delimited, and separate from the next pair by newline.)')
+                        reject(new Error('Improper formatting. (Name-token pairs are space-delimited, and separate from the next pair by newline.)'))
                     this.tokens[words[0]] = words[1]
                 }.bind(this))
                 .on('error', function (err) {
