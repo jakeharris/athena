@@ -24,11 +24,6 @@ describe('TokenManager', function () {
     })
   })
   context('parseTokens()', function () {
-    // testing this is hard...
-    it('throws an error if the file doesn\'t exist')
-    it('throws an error if the file has no contents')
-    it('throws an error if the file\'s permissions don\'t allow reading')
-    it('throws an error if any of the name-token pairs are invalid') 
     it('exposes an associative array of API tokens if successful, where each key is the name of the service', function () {
       assert.doesNotThrow(function () {
         let tm = new TokenManager().parseTokens()
