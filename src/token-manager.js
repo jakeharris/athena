@@ -14,15 +14,18 @@ class TokenManager {
                 input: fs.createReadStream(this.filePath),
                 terminal: false
             })
-                .on('line', function(line) {
+                .on('line', (line) => {
                     let words = line.split(' ')
                     if(words.length !== 2)
                         reject(new Error('Improper formatting. (Name-token pairs are space-delimited, and separate from the next pair by newline.)'))
                     this.tokens[words[0]] = words[1]
-                }.bind(this))
-                .on('error', function (err) {
+                })
+                .on('error', (err) => {
                     reject(err)
-                }.bind(this))
+                })
+                .on('close', () => {
+                    resolve()
+                })
         })
     }
 }
