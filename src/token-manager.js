@@ -1,6 +1,7 @@
 var readline = require('readline'),
     fs = require('fs')
 
+// Manages API tokens for the app.
 class TokenManager {
 
     constructor(filePath = '../tokens') {
@@ -8,6 +9,8 @@ class TokenManager {
         this.tokens = {}
     }
 
+    // create an object mapping API names
+    // to token details. 
     parseTokens () {
         return new Promise((resolve, reject) => {
             let rl = readline.createInterface({
