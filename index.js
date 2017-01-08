@@ -10,7 +10,6 @@ athena.on('ready', () => {
 }).on('message', (message) => {
     if(message.content.indexOf('/ow') === 0) {
         let tags = message.content.split(' ').slice(1)
-        message.channel.sendMessage('Your id is: ' + message.channel.id)
         Request.post({
             url: 'http://localhost:3000/post',
             json: true,
